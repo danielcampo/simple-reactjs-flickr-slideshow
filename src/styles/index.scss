@@ -1,0 +1,20 @@
+html, body, #app-main {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#app-main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+a {
+    text-decoration: none;
+}
