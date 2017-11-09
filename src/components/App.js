@@ -28,6 +28,7 @@ class App extends Component {
 
   /*
     @purpose: Update state with the search query
+    @trigger: When a user types in the search input
   */
   updateStateWithQuery(query) {
     this.setState({
@@ -38,15 +39,18 @@ class App extends Component {
   /*
     @purpose: Update state with photos returned from Flickr API request
               and set the first picture in result as active photo
+    @trigger: When results are returned from the Flickr API search
   */
   updateStateWithPhotos(photos) {
     this.setState({
+      activePhotoIndex: 0,
       photos
     });
   }
 
   /*
     @purpose: Handles navigation functionality for spotlight navigation arrows
+    @trigger: When a user clicks on a photo in Navigation
   */
   navigatePhotos(navDirection) {
     switch(navDirection) {
@@ -75,6 +79,8 @@ class App extends Component {
   /*
     @purpose: Updates spotlight photo based on the photo dataset number from
               selected image in navigation.
+    @trigger: When a user clicks on a photo in Navigation
+
   */
   updateSpotlightPhoto(photoIndex) {
     /* Check if selected index and current index are the same, if so, do nothing */
@@ -87,6 +93,7 @@ class App extends Component {
 
   /*
     @purpose: Get photos from Flickr API using fetch
+    @trigger: When a user submits their search query
   */
   getPhotosFromFlickrWithQuery(e) {
     e.preventDefault(); // Prevent form from reloading page
