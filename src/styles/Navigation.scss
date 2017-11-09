@@ -4,14 +4,13 @@
     bottom: 0;
     display: flex;
     flex: 0 0 125px;
+    justify-content: center;
     overflow-x: auto;
 
-    @media (min-width: 768px) {
-        justify-content: center; // Center thumbnails on larger screens
-    }
-
-    .image {
+    img {
+        height: 100px;
+        margin-left: .5em;
         margin-right: .5em;
-        &:last-child { margin-right: 0; }
+        width: 100px;
     }
 }
