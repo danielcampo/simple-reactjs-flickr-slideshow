@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import { createFlickrUrlFromObject } from '../helpers/flickr_helpers';
 
@@ -39,6 +40,12 @@ class Spotlight extends Component {
             </div>
         );
     }
+}
+
+Spotlight.propTypes = {
+    activePhotoIndex: PropTypes.number.isRequired,
+    navigatePhotos: PropTypes.func.isRequired,
+    photos: PropTypes.array.isRequired
 }
 
 export default Spotlight;

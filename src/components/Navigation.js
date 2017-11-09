@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import { createFlickrUrlFromObject } from '../helpers/flickr_helpers';
 
@@ -32,7 +33,11 @@ const Navigation = (props) => {
             </div>
         </div>
     );
-
 }
+
+Navigation.propTypes = {
+    updateSpotlightPhoto: PropTypes.func.isRequired,
+    photos: PropTypes.array.isRequired
+};
 
 export default Navigation;

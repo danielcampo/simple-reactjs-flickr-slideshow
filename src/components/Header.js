@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import Search from './Search';
 
@@ -12,5 +13,10 @@ const Header = (props) => (
         />
     </header>
 );
+
+Header.propTypes = {
+    updateStateWithQuery: PropTypes.func.isRequired,
+    getPhotosFromFlickrWithQuery: PropTypes.func.isRequired
+};
 
 export default Header;
