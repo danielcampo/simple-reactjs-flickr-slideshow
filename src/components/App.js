@@ -16,12 +16,14 @@ class App extends Component {
 
     this.state = {
       photos: [],
-      activePhotoUrl: '',
+      activePhotoIndex: 0,
       query: ''
     }
 
     this.updateStateWithQuery = this.updateStateWithQuery.bind(this);
     this.getPhotosFromFlickrWithQuery = this.getPhotosFromFlickrWithQuery.bind(this);
+    this.navigatePhotos = this.navigatePhotos.bind(this);
+    this.updateSpotlightPhoto = this.updateSpotlightPhoto.bind(this);
   }
 
   /*
@@ -39,9 +41,48 @@ class App extends Component {
   */
   updateStateWithPhotos(photos) {
     this.setState({
-      photos,
-      activePhotoUrl: createFlickrUrlFromObject(photos[0], 'large')
+      photos
     });
+  }
+
+  /*
+    @purpose: Handles navigation functionality for spotlight navigation arrows
+  */
+  navigatePhotos(navDirection) {
+    switch(navDirection) {
+      /* Previous photo */
+      case 'prev': {
+        /* Check if we're not on the first image, if so do nothing. */
+        if (this.state.activePhotoIndex != 0) {
+          this.setState({
+            activePhotoIndex: this.state.activePhotoIndex - 1
+          });
+        }
+        break;
+      }
+      /* Next photo */
+      default: {
+        /* Check if we're not on the last image, if so do nothing. */
+        if (this.state.activePhotoIndex != this.state.photos.length - 1) {
+          this.setState({
+            activePhotoIndex: this.state.activePhotoIndex + 1
+          });
+        }
+      }
+    }
+  }
+
+  /*
+    @purpose: Updates spotlight photo based on the photo dataset number from
+              selected image in navigation.
+  */
+  updateSpotlightPhoto(photoIndex) {
+    /* Check if selected index and current index are the same, if so, do nothing */
+    if (photoIndex !== this.state.activePhotoIndex) {
+      this.setState({
+        activePhotoIndex: parseInt(photoIndex)
+      });
+    }
   }
 
   /*
@@ -66,8 +107,15 @@ class App extends Component {
           updateStateWithQuery={this.updateStateWithQuery}
           getPhotosFromFlickrWithQuery={this.getPhotosFromFlickrWithQuery}
         />
-        <Spotlight photoUrl={this.state.activePhotoUrl} />
-        <Navigation photos={this.state.photos} />
+        <Spotlight
+          activePhotoIndex={this.state.activePhotoIndex}
+          photos={this.state.photos}
+          navigatePhotos={this.navigatePhotos}
+        />
+        <Navigation
+          photos={this.state.photos}
+          updateSpotlightPhoto={this.updateSpotlightPhoto}
+        />
       </div>
     );
   }
