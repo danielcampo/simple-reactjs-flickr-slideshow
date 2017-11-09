@@ -5,6 +5,7 @@ import Spotlight from './Spotlight';
 import Navigation from './Navigation';
 
 import * as FlickrConfig from '../configs/flickr';
+import { createFlickrUrlFromObject } from '../helpers/flickr-helpers';
 
 import '../styles/App.scss';
 
@@ -34,16 +35,17 @@ class App extends Component {
 
   /*
     @purpose: Update state with photos returned from Flickr API request
+              and set the first picture in result as active photo
   */
   updateStateWithPhotos(photos) {
     this.setState({
       photos,
-      activePhotoUrl: `https://farm${photos[0].farm}.staticflickr.com/${photos[0].server}/${photos[0].id}_${photos[0].secret}.jpg`
+      activePhotoUrl: createFlickrUrlFromObject(photos[0], 'large')
     });
   }
 
   /*
-    @purpose: Update state with photos returned from Flickr API request
+    @purpose: Get photos from Flickr API using fetch
   */
   getPhotosFromFlickrWithQuery(e) {
     e.preventDefault(); // Prevent form from reloading page
@@ -64,7 +66,7 @@ class App extends Component {
           updateStateWithQuery={this.updateStateWithQuery}
           getPhotosFromFlickrWithQuery={this.getPhotosFromFlickrWithQuery}
         />
-        <Spotlight photo={this.state.activePhotoUrl} />
+        <Spotlight photoUrl={this.state.activePhotoUrl} />
         <Navigation photos={this.state.photos} />
       </div>
     );
