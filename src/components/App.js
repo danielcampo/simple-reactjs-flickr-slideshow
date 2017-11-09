@@ -5,7 +5,7 @@ import Spotlight from './Spotlight';
 import Navigation from './Navigation';
 
 import * as FlickrConfig from '../configs/flickr';
-import { createFlickrUrlFromObject } from '../helpers/flickr-helpers';
+import { createFlickrUrlFromObject } from '../helpers/flickr_helpers';
 
 import '../styles/App.scss';
 

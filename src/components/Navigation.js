@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { createFlickrUrlFromObject } from '../helpers/flickr-helpers';
+import { createFlickrUrlFromObject } from '../helpers/flickr_helpers';
 
 import '../styles/Navigation.scss';
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { createFlickrUrlFromObject } from '../helpers/flickr-helpers';
+import { createFlickrUrlFromObject } from '../helpers/flickr_helpers';
 
 import '../styles/Spotlight.scss';
 
