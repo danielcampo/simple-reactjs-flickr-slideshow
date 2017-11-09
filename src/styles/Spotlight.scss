@@ -27,4 +27,9 @@
         &.nav-prev { left: $nav-spacing; }
         &.nav-next { right: $nav-spacing; }
     }
+
+    .spotlight__empty {
+        color: darkgray;
+        font-style: italic;
+    }
 }
