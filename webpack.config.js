@@ -10,8 +10,9 @@ module.exports = {
     __dirname: true
     },
     entry: [
-        path.join(APP_DIR, 'index.js'),
-        'webpack-hot-middleware/client'
+        'babel-polyfill',
+        'react-hot-loader/patch',
+        path.join(APP_DIR, 'index.js')
     ],
     output: {
         path: BUILD_DIR,
@@ -47,6 +48,7 @@ module.exports = {
         ],
     },
     plugins: [
+        new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin()
     ]
