@@ -8,6 +8,7 @@
 
     img {
         height: auto;
+        min-height: 300px;
         // Make sure image constrains to parent container by subtracting header and nav:
         max-height: calc(100vh - 175px);
         max-width: 100vw;
