@@ -5,12 +5,17 @@
     display: flex;
     flex: 0 0 125px;
     justify-content: center;
-    overflow-x: auto;
+    
+    .navigation__container {
+        display: flex;
+        flex-grow: 0;
+        height: 120px;
+        overflow-x: auto;
+    }
 
     img {
         height: 100px;
-        margin-left: .5em;
-        margin-right: .5em;
+        margin: 0 .1em;
         width: 100px;
     }
 }

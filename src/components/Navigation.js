@@ -11,11 +11,13 @@ const Navigation = (props) => {
 
     return(
         <div id="Navigation">
-            {
-                props.photos.map(photo => {
-                    return <a href="#"><img src={ createFlickrUrlFromObject(photo) } /></a>;
-                })
-            }
+            <div className="navigation__container">
+                {
+                    props.photos.map((photo,idx) => {
+                        return <a href="#" key={`photo-${idx}`}><img src={ createFlickrUrlFromObject(photo) } /></a>;
+                    })
+                }
+            </div>
         </div>
     );
 
