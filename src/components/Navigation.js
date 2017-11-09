@@ -14,7 +14,19 @@ const Navigation = (props) => {
             <div className="navigation__container">
                 {
                     props.photos.map((photo,idx) => {
-                        return <a href="#" key={`photo-${idx}`}><img src={ createFlickrUrlFromObject(photo) } /></a>;
+                        return(
+                            <a
+                                data-photo={idx}
+                                href="#"
+                                key={`photo-${idx}`}
+                                onClick={(e) => props.updateSpotlightPhoto(e.target.dataset.photo)}
+                            >
+                                <img
+                                    data-photo={idx}
+                                    src={createFlickrUrlFromObject(photo)}
+                                />
+                            </a>
+                        );
                     })
                 }
             </div>
