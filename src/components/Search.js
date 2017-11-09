@@ -1,8 +1,14 @@
 import React from 'react';
 
-const Search = () => (
+const Search = (props) => (
     <div className="header__search">
-        <input type="text" placeholder="Search..." />
+        <form>
+            <input
+                type="text"
+                placeholder="Search..."
+                onChange={(e) => props.updateStateWithQuery(e.target.value)}
+            />
+        </form>
     </div>
 );
 

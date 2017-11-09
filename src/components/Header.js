@@ -4,14 +4,10 @@ import Search from './Search';
 
 import '../styles/Header.scss';
 
-class Header extends Component {
-    render() {
-        return(
-            <header id="Header">
-                <Search />
-            </header>
-        );
-    }
-};
+const Header = (props) => (
+    <header id="Header">
+        <Search updateStateWithQuery={props.updateStateWithQuery} />
+    </header>
+);
 
 export default Header;
