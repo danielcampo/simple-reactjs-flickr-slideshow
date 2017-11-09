@@ -1,0 +1,17 @@
+#Navigation {
+    align-items: center;
+    background-color: darkgray;
+    bottom: 0;
+    display: flex;
+    flex: 0 0 125px;
+    overflow-x: auto;
+
+    @media (min-width: 768px) {
+        justify-content: center; // Center thumbnails on larger screens
+    }
+
+    .image {
+        margin-right: .5em;
+        &:last-child { margin-right: 0; }
+    }
+}
