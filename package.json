@@ -24,7 +24,7 @@
     "start": "node --inspect server.js",
     "build": "npm run build:webpack",
     "build:webpack": "NODE_ENV=production webpack --config webpack.config.js",
-    "test": "mocha --compilers js:babel-core/register --require ignore-styles --require ./test/helpers.js --require ./test/dom.js --recursive",
+    "test": "mocha --compilers js:babel-core/register --require ignore-styles --require ./test/testHelpers.js --require ./test/testBrowser.js --recursive",
     "tdd": "npm test -- --watch"
   },
   "devDependencies": {
