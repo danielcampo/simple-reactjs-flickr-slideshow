@@ -1,5 +1,5 @@
 ## Description
-Initial Univision interview project to determine technical capabilities.
+Simple slideshow utilizing ReactJS & Flickr API.
 
 ## Scope of Work
 
@@ -20,10 +20,3 @@ Using the [**Flckr API**](https://www.flickr.com/services/api/), construct an ap
 * Webpack
 * ES6
 * ESlint
-
-*Bonus points for using the least amount of third party libraries possible*
-
-## Devlierables
-
-* Github repo with your solution
-* Unit testing to go with your solution
